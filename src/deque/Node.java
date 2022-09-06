@@ -18,15 +18,21 @@ public class Node<Item>{
     private Node next;
     private Item payload;
     // construct an empty deque
+    
     public Node ( Node prev, Node next, Item payload) {
         this.prev = prev;
         this.next = next;
         this.payload = payload;
-    } // Deque (Deque, Deque, int)
+    } // Node(Node, Node, Item)
     
+    public Node (Node next, Item payload) {
+        this.next = next;
+        this.payload = payload;
+    } // Node(Node, Item)
+     
     public Node (Item payload) {
-        this(null, null, payload);
-    } // Deque (int) 
+        this.payload = payload;
+    } // Node(Item)
 
     /**
      * @return the prev
