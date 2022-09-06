@@ -100,9 +100,24 @@ public class Point implements Comparable<Point> {
      *
      * @return the Comparator that defines this ordering on points
      */
-    /*public Comparator<Point> slopeOrder() {
+    public Comparator<Point> slopeOrder() {
+        class BySlope implements Comparator<Point> {
+            public int compare(Point a, Point b)
+            {
+                double SlopeA = slopeTo(a);
+                double SlopeB = slopeTo(b);
+
+                if(SlopeA < SlopeB)
+                    return -1;
+                if(SlopeA == SlopeB)
+                    return 0;
+                else
+                    return 1;
+            }
+        }
         
-    }*/
+        return new BySlope();
+    }
 
 
     /**
