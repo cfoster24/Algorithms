@@ -19,6 +19,7 @@ public class Deque<Item> implements Iterable<Item>{
     private Node first;
     private Node last;
     
+    // adding this comment for github push
     // construct an empty deque
     public Deque (Node first, Node last) {
         this.first = first;
