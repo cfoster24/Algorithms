@@ -24,7 +24,7 @@ public class Point implements Comparable<Point> {
         /* DO NOT MODIFY */
         this.x = x;
         this.y = y;
-    }
+    }// Point(int, int)
 
     /**
      * Draws this point to standard draw.
@@ -32,7 +32,7 @@ public class Point implements Comparable<Point> {
     public void draw() {
         /* DO NOT MODIFY */
         StdDraw.point(x, y);
-    }
+    }// draw()
 
     /**
      * Draws the line segment between this point and the specified point
@@ -43,7 +43,7 @@ public class Point implements Comparable<Point> {
     public void drawTo(Point that) {
         /* DO NOT MODIFY */
         StdDraw.line(this.x, this.y, that.x, that.y);
-    }
+    } //drawTo (Point)
 
     /**
      * Returns the slope between this point and the specified point.
@@ -65,7 +65,7 @@ public class Point implements Comparable<Point> {
             return Double.NEGATIVE_INFINITY;
         else
             return ((that.y - this.y) / (that.x - this.x));
-    }
+    }// slopeTo(Point)
 
     /**
      * Compares two points by y-coordinate, breaking ties by x-coordinate.
@@ -92,7 +92,7 @@ public class Point implements Comparable<Point> {
             return 1;
         else
             return -1;
-    }
+    }// compareTo(Point)
 
     /**
      * Compares two points by the slope they make with this point.
@@ -117,7 +117,7 @@ public class Point implements Comparable<Point> {
         }
         
         return new BySlope();
-    }
+    }// slopeOrder()
 
 
     /**
@@ -130,12 +130,16 @@ public class Point implements Comparable<Point> {
     public String toString() {
         /* DO NOT MODIFY */
         return "(" + x + ", " + y + ")";
-    }
+    }// toString()
 
     /**
      * Unit tests the Point data type.
      */
     public static void main(String[] args) {
-        /* YOUR CODE HERE */
-    }
-}
+        Point a = new Point(3,7);
+        Point b = new Point(4,7);
+        Point c = new Point(2,6);
+        
+        System.out.println(a.slopeOrder().compare(b,c));
+    }// main(String[])
+} // Point
