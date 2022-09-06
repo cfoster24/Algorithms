@@ -10,6 +10,7 @@ package deque;
  * @author cfoster24
  * @param <Item>
  */
+import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -51,8 +52,7 @@ public class Deque<Item> implements Iterable<Item>{
     public void addFirst(Item data) {
         if (data == null)
         {
-            System.out.println("Illegal Argument");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Illegal Argument");
         }
         if (this.first == this.last  && this.first == null && this.last == null) {
             this.first = new Node(data);
@@ -73,8 +73,7 @@ public class Deque<Item> implements Iterable<Item>{
     public void addLast(Item data) throws IllegalArgumentException {
         if (data == null)
         {
-            System.out.println("Illegal Argument");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Illegal Argument");
         }
         if (this.first == this.last  && this.first == null && this.last == null) {
             addFirst(data);
@@ -92,8 +91,8 @@ public class Deque<Item> implements Iterable<Item>{
     // remove and return the item from the front
     public Item removeFirst() throws NoSuchElementException {
         if (this.isEmpty()){
-            System.out.println("Cannot remove items from empty Deque");
-            throw new NoSuchElementException();
+            throw new NoSuchElementException
+                ("Cannot remove items from empty Deque");
         }
         Item payload = (Item) this.first.getPayload();
         
@@ -129,45 +128,45 @@ public class Deque<Item> implements Iterable<Item>{
             private Node current = first;
             
             public boolean hasNext() {
-                return current.getNext() != null;
+                return current != null;
             }//hasNext()
             public Item next() throws NoSuchElementException {
-                if (current == null) {
-                    throw new NoSuchElementException();
-                }
+                
+                if (!hasNext()) throw new NoSuchElementException("There are no more elements"); 
                 Item item = (Item) current.getPayload();
                 current = current.getNext();
                 return item;
             }//next()
             public void remove() throws UnsupportedOperationException {
                 // Unsupported
-                System.out.println("UnsupportedOperationException");
-                throw new UnsupportedOperationException();
+                throw new UnsupportedOperationException("UnsupportedOperationException");
             } //remove()
     } // listIterator
  
     // unit testing (required)
     public static void main(String[] args) {
-       Deque dq = new Deque(null, null);
-       
-       dq.addFirst(null);
-       //dq.addLast(4);
-       //dq.addFirst(12);
-       //dq.addLast(32);
-       //dq.addLast(64);
-       //dq.removeFirst();
-       //dq.addLast("China");
-       
-       //System.out.println(dq.size());
-       System.out.println(dq.isEmpty());
-       
-       Node current = dq.first;
-       
-       while (current != null){
-           System.out.println(current.getPayload());
-           current = current.getNext();
-       }//while
-       
+        Deque dq = new Deque(null, null);
+
+        dq.addFirst(1);
+        dq.addLast(4);
+        dq.addFirst(12);
+        dq.addLast(32);
+        dq.addLast(64);
+        //dq.removeFirst();
+        dq.addLast("China");
+
+        //System.out.println(dq.size());
+        //System.out.println(dq.isEmpty());
+
+        Node current = dq.first;
+
+        /*while (current != null){
+            System.out.println(current.getPayload());
+            current = current.getNext();
+        }//while*/
+
+        for (Object d : dq)
+            StdOut.println(d);
        
     } // main(String[])
 
