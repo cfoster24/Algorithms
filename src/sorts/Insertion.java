@@ -20,7 +20,7 @@ public class Insertion {
                     int temp = a[j-1];
                     a[j-1] = a[j];
                     a[j] = temp;
-                }
+                } // if
                 else break;
-    }
-}
+    }// sort(int[])
+}// Insertion

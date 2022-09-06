@@ -23,6 +23,6 @@ public class Selection {
             int temp = a[min];
             a[min] = a[i];
             a[i] = temp;
-        }
-    }
-}
+        } // for
+    } // sort(int[])
+}// Selection

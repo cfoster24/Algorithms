@@ -27,10 +27,10 @@ public class Shellsort {
                     int temp = a[j-h];
                     a[j-h] = a[j];
                     a[j] = temp;
-                }
-            }
+                } // for
+            } // for
             
             h = h/3;
-        }
-    }
-}
+        } //while
+    } // sort(int[])
+}// Shellsort

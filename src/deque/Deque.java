@@ -75,7 +75,7 @@ public class Deque<Item> implements Iterable<Item>{
         {
             throw new IllegalArgumentException("Illegal Argument");
         }
-        if (this.first == this.last  && this.first == null && this.last == null) {
+        if (this.isEmpty()){
             addFirst(data);
         }
         else {
@@ -107,16 +107,20 @@ public class Deque<Item> implements Iterable<Item>{
     // remove and return the item from the back
     public Item removeLast() throws NoSuchElementException {
         if (this.isEmpty()){
-            System.out.println("Cannot remove items from empty Deque");
-            throw new NoSuchElementException();
+            throw new NoSuchElementException
+                    ("Cannot remove items from empty Deque");
         }
-        Item payload = (Item) this.last.getPayload();
-        this.last = this.last.getPrev();
         
-        if (this.last != null)
+        Node oldlast = this.last;
+        this.last = oldlast.getPrev();
+        
+        if (isEmpty())
+            this.first = null;
+        else if (this.last != null)
             this.last.setNext(null);
         
-        return payload;
+        
+        return (Item) oldlast.getPayload();
     }//removeLast()
 
     // return an iterator over items in order from front to back
@@ -147,18 +151,19 @@ public class Deque<Item> implements Iterable<Item>{
     public static void main(String[] args) {
         Deque dq = new Deque(null, null);
 
+        dq.addFirst("Chicken");
         dq.addFirst(1);
-        dq.addLast(4);
-        dq.addFirst(12);
-        dq.addLast(32);
-        dq.addLast(64);
-        //dq.removeFirst();
-        dq.addLast("China");
+        dq.addFirst(2);
+        dq.addFirst(4);
+        dq.removeLast();
+        
+        
+        
 
         //System.out.println(dq.size());
         //System.out.println(dq.isEmpty());
 
-        Node current = dq.first;
+        
 
         /*while (current != null){
             System.out.println(current.getPayload());
