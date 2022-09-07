@@ -295,7 +295,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         MaxPQ<String> pq = new MaxPQ<String>();
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
@@ -303,7 +303,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
             else if (!pq.isEmpty()) StdOut.print(pq.delMax() + " ");
         }
         StdOut.println("(" + pq.size() + " left on pq)");
-    }
+    }*/
 
 }
 
