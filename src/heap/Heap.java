@@ -22,13 +22,11 @@ public class Heap {
         }
     }
     
-    private static void sink(Comparable[] pq, int k, int N)
-    {
-        while(2*k <= N)
-        {
+    private static void sink(Comparable[] pq, int k, int n) {
+        while (2*k <= n) {
             int j = 2*k;
-            if(j < N && j < j+1) j++;
-            if(!(k < j)) break;
+            if (j < n && less(pq, j, j+1)) j++;
+            if (!less(pq, k, j)) break;
             exch(pq, k, j);
             k = j;
         }
