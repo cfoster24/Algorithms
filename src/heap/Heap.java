@@ -14,7 +14,7 @@ public class Heap {
     {
         int N = pq.length;
         // build heap
-        for (int i = N/2 - 1; i >= 0; i--)
+        for( int i = N/2 - 1; i >= 0; i-- )
             sink(pq, i, N);
         
         
@@ -22,8 +22,8 @@ public class Heap {
         {
             exch(pq, 0, i);
             sink(pq, 0, i);
-        }
-    }
+        }// for
+    }// sort(int[])
     
     private static void sink(int[] pq, int k, int n) {
         int largest = k; // initialize largest as root
@@ -41,12 +41,11 @@ public class Heap {
         // If largest is not root
         if (largest != k)
         {   
-            
             exch(pq, k, largest);
             
             // Repeatedly sink until largest is at the root
             sink(pq, n, largest);
-        }
+        } // if
     } // sink(int[], int, int)
    
     
@@ -70,5 +69,5 @@ public class Heap {
         
         for(int i : a)
             System.out.println(i);
-    }
-}
+    } // main(String[])
+} // Heap
