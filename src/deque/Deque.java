@@ -54,17 +54,15 @@ public class Deque<Item> implements Iterable<Item>{
         {
             throw new IllegalArgumentException("Illegal Argument");
         }
-        if (this.first == this.last  && this.first == null && this.last == null) {
+        if (this.isEmpty()) {
             this.first = new Node(data);
-            this.first.setNext(null);
-            this.first.setPrev(null);
             this.last = this.first;
         }
         else {
             Node oldFirst = this.first; 
             this.first = new Node(data);
             this.first.setNext(oldFirst);
-            this.first.setPrev(null);
+            oldFirst.setPrev(this.first);
         }
         
     }//addFirst(Item)
@@ -81,7 +79,6 @@ public class Deque<Item> implements Iterable<Item>{
         else {
             Node oldLast = this.last;
             this.last = new Node(data);
-            this.last.setNext(null);
             this.last.setPrev(oldLast);
             oldLast.setNext(this.last);
         }
@@ -156,7 +153,7 @@ public class Deque<Item> implements Iterable<Item>{
         dq.addFirst(2);
         dq.addFirst(4);
         dq.removeLast();
-        
+        dq.removeFirst();
         
         
 
