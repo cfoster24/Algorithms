@@ -93,4 +93,11 @@ public class HashTable <Key, Value> {
         return queue;
     } // keys()
     
+    public static void main(String[] args){
+        HashTable contactList = new HashTable(12);
+        contactList.put("Doe, John", "920-251-3061");
+        
+        System.out.println(contactList);
+        
+    }// main(String[])
 }// HashTable
