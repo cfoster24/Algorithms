@@ -93,11 +93,26 @@ public class HashTable <Key, Value> {
         return queue;
     } // keys()
     
+    public Iterable<Value> vals() {
+        Queue<Value> queue = new Queue<Value>();
+        for(int i = 0; i < m; i ++)
+            if (vals[i] != null) queue.enqueue(vals[i]);
+        return queue;
+    }// values()
+    
     public static void main(String[] args){
         HashTable contactList = new HashTable(12);
         contactList.put("Doe, John", "920-251-3061");
+        contactList.put("Doe, Jane", "920-375-0312");
+        contactList.put("Cranston, Bryan", "509-231-3515");
         
-        System.out.println(contactList);
+        System.out.println(contactList.get("Doe, John"));
+        System.out.println(contactList.get("Cranston, Bryan"));
+        //contactList.delete("Doe, John");
+        System.out.println(contactList.contains("Doe, John"));
+        System.out.println(contactList.get("Doe, John"));
         
+        System.out.println(contactList.keys());
+        System.out.println(contactList.vals());
     }// main(String[])
 }// HashTable
