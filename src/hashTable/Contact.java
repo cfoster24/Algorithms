@@ -98,6 +98,7 @@ public class Contact {
         }// while
     }// removeEmail(String)
     
+    @Override
     public String toString() {
         String phones = "Phones:";
         String emails = "Emails:";
@@ -120,7 +121,7 @@ public class Contact {
             eCurrent = eCurrent.getNext();
         }// while
         
-        return(phones + "\n" + emails);
+        return(phones + "\n" + emails );
     }// toString
     
     public static void main(String[] args) {
