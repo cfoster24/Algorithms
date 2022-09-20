@@ -12,7 +12,7 @@ import edu.princeton.cs.algs4.Queue;
  * @author cfoster24
  */
 public class HashTable <Key, Value> {
-    
+    private int DEFAULT_CAPACITY = 100;
     private int m;
     private int n;
     private Value[] vals;
@@ -25,6 +25,14 @@ public class HashTable <Key, Value> {
         vals = (Value[]) new Object[m];
         
     }// HashTable(int)
+    
+    public HashTable(){
+        m = DEFAULT_CAPACITY;
+        n = 0;
+        keys = (Key[]) new Object[m];
+        vals = (Value[]) new Object[m];
+        
+    }// HashTable()
     
     public int size() {
         return n;
