@@ -19,9 +19,14 @@ public class Contact {
         this(null, null);
     }// Contact()
     
-    public Contact(String eData, String pData) {
+    public Contact(String pData, String eData) {
         this.eData = eData;
-        this.pData = pData; 
+        this.pData = pData;
+        if (eData != null)
+            this.addEmail(eData);
+        
+        if (pData != null)
+            this.addPhone(pData);
     }// Contact(String, String)
     
     public int pSize(){
@@ -92,5 +97,37 @@ public class Contact {
             current = current.getNext();
         }// while
     }// removeEmail(String)
+    
+    public String toString() {
+        String phones = "Phones:";
+        String emails = "Emails:";
+        
+        Node pCurrent = this.pHead;
+        while(pCurrent != null) {
+            if(pCurrent.getNext() != null)
+                phones += ("[" + pCurrent.getPayload() + "] => ");
+            else
+                phones += ("[" + pCurrent.getPayload() + "]");
+            pCurrent = pCurrent.getNext();
+        }// while
+        
+        Node eCurrent = this.eHead;
+        while(eCurrent != null) {
+            if(eCurrent.getNext() != null)
+                emails += ("[" + eCurrent.getPayload() + "] => " );
+            else
+                emails += ("[" + eCurrent.getPayload() + "]");
+            eCurrent = eCurrent.getNext();
+        }// while
+        
+        return(phones + "\n" + emails);
+    }// toString
+    
+    public static void main(String[] args) {
+        Contact johnDoe = new Contact("920-251-3061", null);
+        johnDoe.addPhone("920-251-3061");
+        johnDoe.addEmail("dJohn23@cornellcollge.edu");
+        System.out.println(johnDoe);
+    }// main(String[])
     
 }// Contact
