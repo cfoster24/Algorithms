@@ -126,14 +126,11 @@ public class HashTable <Key, Value> {
         contactList.put("Doe, John", new Contact("920-251-3061", null));
         contactList.put("Doe, Jane", new Contact("920-375-0312", null));
         contactList.put("Cranston, Bryan", new Contact(null, "cbryan99@cornellcollege.edu"));
-        
+        contactList.put("Tabak, Leon", new Contact("132-851-5912", "ltabak@cornellcollege.edu"));
         contactList.get("Doe, John").addEmail("djohn23@cornellcollge.edu");
-        //System.out.println(contactList.get("Cranston, Bryan"));
-        //contactList.delete("Doe, John");
-        //System.out.println(contactList.contains("Doe, John"));
-        //System.out.println(contactList.get("Doe, John"));
+        contactList.get("Doe, John").addEmail("johndoe@gmail.com");
+       
         System.out.println(contactList);
-        //System.out.println(contactList.keys());
-        //System.out.println(contactList.vals());
+        
     }// main(String[])
 }// HashTable
