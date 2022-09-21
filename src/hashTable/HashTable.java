@@ -125,7 +125,7 @@ public class HashTable <Key, Value> {
         HashTable contactList = new HashTable(12);
         contactList.put("Doe, John", new Contact("920-251-3061", null));
         contactList.put("Doe, Jane", new Contact("920-375-0312", null));
-        contactList.put("Cranston, Bryan", new Contact());
+        contactList.put("Cranston, Bryan", new Contact(null, "cbryan99@cornellcollege.edu"));
         
         contactList.get("Doe, John").addEmail("djohn23@cornellcollge.edu");
         //System.out.println(contactList.get("Cranston, Bryan"));
